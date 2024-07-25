@@ -47,10 +47,10 @@ export default function ProductListing() {
             </div>
             
             <div className="flex flex-col gap-6 ">
-              <div className="flex gap-10 max-sm:gap-5 max-sm:justify-center max-md:gap-24 items-center max-sm:flex-col ">
+              <div className="flex gap-10 max-sm:gap-5 justify-center max-sm:flex-col max-sm:justify-center max-md:gap-24 items-center ">
                 {products.filter((prod)=> prod.id === pick).map((item)=>{
                   return (
-                    <div key={item.name} className="max-sm:mt-8 w-full">
+                    <div key={item.name} className="max-sm:mt-8 max-sm:w-full">
                       <div
                       className="flex max-lg:w-[30vw] max-md:w-[35vw] max-sm:w-full cursor-pointer hover:scale-110 flex-col gap-6 w-[25vw] h-54 p-4 bg-choice1 text-white shadow-xl rounded-lg border border-choice1">
                       <Suspense fallback={<div className="w-full h-32 object-cover text-choice4"><CiImageOn/></div>}>
@@ -82,7 +82,7 @@ export default function ProductListing() {
                   
                   <div
                   onClick={()=>handleIncrement(prod.id)}
-                   key={prod.id} className="flex max-lg:w-[20vw] max-md:w-[35vw] max-sm:w-1/2 cursor-pointer hover:scale-110 flex-col gap-6 w-[15vw] h-54 p-4 bg-choice2 text-choice4 shadow-xl rounded-lg border border-choice2">
+                   key={prod.id} className="flex max-lg:w-[20vw] max-md:w-[35vw] max-sm:w-4/5 max-sm:mx-auto cursor-pointer hover:scale-110 flex-col gap-6 w-[15vw] h-54 p-4 bg-choice2 text-choice4 shadow-xl rounded-lg border border-choice2">
                     <Suspense fallback={<div className="w-full h-32 object-cover"><CiImageOn/></div>}>
                       <img src={prod.src} alt={prod.name} className="w-full rounded-lg h-32 object-cover"/>
                     </Suspense>
