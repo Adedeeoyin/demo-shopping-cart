@@ -7,6 +7,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { DECREMENT, INCREMENT } from "../../redux/actionType";
 import { CiCircleMinus } from "react-icons/ci";
 import { CiCirclePlus } from "react-icons/ci";
+import image1 from '../../assets/plant1.jpg'
+import image2 from '../../assets/plant2.jpg'
+import image3 from '../../assets/plant3.jpg'
+import image4 from '../../assets/plant4.jpg'
+import image5 from '../../assets/plant5.jpg'
+import image6 from '../../assets/plant6.jpg'
 
 export default function ProductListing() {
   const [ pick, setPick] = useState(111)
@@ -30,12 +36,12 @@ export default function ProductListing() {
     }
 
     const products = [
-      {name: 'plant-1', id:111, amount: 1000, src:'src/assets/plant1.jpg'},
-      {name: 'plant-2', id:222, amount: 2000, src:'src/assets/plant2.jpg'},
-      {name: 'plant-3', id:333, amount: 3000, src:'src/assets/plant3.jpg'},
-      {name: 'plant-4', id:444, amount: 4000, src:'src/assets/plant4.jpg'},
-      {name: 'plant-5', id:555, amount: 5000, src:'src/assets/plant5.jpg'},
-      {name: 'plant-6', id:666, amount: 6000, src:'src/assets/plant6.jpg'},
+      {name: 'plant-1', id:111, amount: 1000, src: image1},
+      {name: 'plant-2', id:222, amount: 2000, src: image2},
+      {name: 'plant-3', id:333, amount: 3000, src: image3},
+      {name: 'plant-4', id:444, amount: 4000, src: image4},
+      {name: 'plant-5', id:555, amount: 5000, src: image5},
+      {name: 'plant-6', id:666, amount: 6000, src: image6},
     ]
   return (
     <Product_Layout>
