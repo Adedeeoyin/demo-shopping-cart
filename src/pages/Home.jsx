@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import bgImage from '../assets/house-plant.jpg'
 
 export default function Home() {
     const navigate = useNavigate()
@@ -8,7 +9,7 @@ export default function Home() {
     }
 
   return (
-    <div className="w-screen min-h-screen bg-[url('./src/assets/house-plant.jpg')] bg-cover bg-no-repeat ">
+    <div style={{backgroundImage: `url(${bgImage})`}} className={`w-screen min-h-screen bg-cover bg-no-repeat `}>
         <div className="backdrop-blur-md w-full min-h-screen p-16 max-sm:p-8">
             <div className="flex flex-col justify-center text-center w-max font-semibold font-mono text-choice1 shadow p-2 border-t border-gray-200 hover:scale-105">
                 Kingdom <span className="font-rob text-green-600">Plantae</span>
