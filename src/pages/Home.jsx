@@ -16,7 +16,7 @@ export default function Home() {
                 </div>
 
                 <div className=" mt-36 w-full max-w-[75rem] mx-auto text-center text-choice2 font-semibold text-2xl backdrop-blur-sm">
-                Welcome to HomePlant, your go-to destination for discovering and sharing the best home plants. Whether you're a seasoned green thumb or just starting your indoor gardening journey, our curated listings and expert tips will help you find the perfect plants to brighten your space. Explore our diverse selection, learn how to care for your new green friends, and join a community of plant enthusiasts dedicated to bringing the beauty of nature into every home. Let's grow together!
+                Welcome to Kingdom Plantae, your go-to destination for discovering and sharing the best home plants. Whether you're a seasoned green thumb or just starting your indoor gardening journey, our curated listings and expert tips will help you find the perfect plants to brighten your space. Explore our diverse selection, learn how to care for your new green friends, and join a community of plant enthusiasts dedicated to bringing the beauty of nature into every home. Let's grow together!
                 </div>
 
                 <div className="w-full h-1/2 pb-10 flex flex-col">
