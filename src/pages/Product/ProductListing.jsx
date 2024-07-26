@@ -32,7 +32,7 @@ export default function ProductListing() {
 
   return (
     <Product_Layout>
-      <div className="p-16 pt-20 max-sm:p-8 relative dark:bg-choice1 ">
+      <div className="p-16 pt-20 max-sm:p-8 relative dark:bg-choice1 dark:text-choice1 ">
             <div
             onClick={()=> navigate('/')}
              className="text-xl p-2 border border-choice1 w-max hover:bg-gray-300 cursor-pointer absolute top-6 left-16 max-sm:left-8">
@@ -67,7 +67,9 @@ export default function ProductListing() {
                     <CiCirclePlus onClick={()=>plusBtn(pick)} className="cursor-pointer"/>
                   </div>
                     <Link to={'/shopping-cart'} >
-                      <button className="border p-2 w-28 text-sm font-bold rounded-lg bg-choice2 text-choice4 border-choice2 hover:bg-white">Add to Cart</button>
+                      <button
+                      disabled={cart.length == 0 ? true : false}
+                       className="border p-2 w-28 text-sm font-bold rounded-lg bg-choice2 text-choice4 border-choice2 hover:bg-white">Add to Cart</button>
                     </Link>
                 </div>
 

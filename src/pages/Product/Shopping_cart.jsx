@@ -1,12 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import Product_Layout from "./Layout";
 import { IoMdArrowBack } from "react-icons/io";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { CiImageOn } from "react-icons/ci";
 import { GrFormNext } from "react-icons/gr";
 import { MdArrowBackIos } from "react-icons/md";
 import {motion } from 'framer-motion'
+import { MdOutlineShoppingCart } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
+import { DECREMENT } from "../../redux/actionType";
 
 export default function Shopping_cart() {
     const [ move, setMove] = useState(0)
@@ -17,6 +20,11 @@ export default function Shopping_cart() {
     const navigate = useNavigate()
     const cart = useSelector((store)=> store.cart)
     const products = useSelector((store)=> store.products)
+    const dispatch = useDispatch()
+
+    const handleDelete = (id)=>{
+      dispatch({type: DECREMENT, payload: id})
+    }
 
     useEffect(() => {
       const observer1 = new IntersectionObserver((entries) => {
@@ -62,7 +70,13 @@ export default function Shopping_cart() {
             </div>
             
             <div className="flex flex-col w-full h-[80vh] gap-2 relative overflow-x-auto">
-              {cart.length == 0 && <div className="font-semibold text-3xl mx-auto">Cart is Empty</div>}
+              {cart.length == 0 &&
+                <div className="flex flex-col items-center ">
+                  <div className="font-semibold text-3xl mx-auto">Cart is Empty</div>
+                  <MdOutlineShoppingCart size={80}/>
+                </div> }
+                  
+                  
               {
                 cart.length > 0 && 
                 <>
@@ -84,7 +98,8 @@ export default function Shopping_cart() {
                   products.filter((prod)=>{
                       return cart.includes(prod.id)
                   })
-                  .map((list,i)=>{
+                  .map((list)=>{
+                    
                     return (
                       <div key={list.src} className="flex flex-col gap-4" >
                         <div
@@ -97,8 +112,11 @@ export default function Shopping_cart() {
                           <div>#{list.amount}</div>
                         </div>
                       </div>
-                      <div className="mx-auto font-semibold">
+                      <div className=" items-center flex justify-center font-semibold">
                         X <span>{cart.filter((item)=>item === list.id).length}</span>
+                      <div
+                      onClick={()=>handleDelete(list.id)}
+                       className="ml-4 cursor-pointer"><MdDelete size={20}/></div>
                       </div>
                       </div>
                     )
@@ -113,13 +131,19 @@ export default function Shopping_cart() {
                       return cart.includes(prod.id)
                   })
                   .map((list,i)=>{
+                    const totalEachPicked = cart.filter((item)=>item === list.id).length
+                    const totalEach = list.amount * totalEachPicked
+                    console.log()
                     return(
                       <div key={i}>
                         <div className="flex gap-6">
                           {list.name}
                           <span>-</span>
-                           <div>#{list.amount} X {cart.filter((item)=>item === list.id).length} =</div>
-                          <div>{list.amount * (cart.filter((item)=>item === list.id).length)}</div>
+                           <div>#{list.amount} X {totalEachPicked} =</div>
+                          <div>{totalEach}</div>
+                        </div>
+                        <div>
+                          {}
                         </div>
                       </div>
                     )
