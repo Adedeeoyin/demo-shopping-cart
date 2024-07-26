@@ -32,10 +32,10 @@ export default function ProductListing() {
 
   return (
     <Product_Layout>
-      <div className="p-16 max-sm:p-8 relative dark:bg-choice1 dark:text-choice4">
+      <div className="p-16 pt-20 max-sm:p-8 relative dark:bg-choice1 dark:text-choice4 ">
             <div
             onClick={()=> navigate('/')}
-             className="text-xl p-2 border border-choice1 w-max hover:bg-gray-300 cursor-pointer absolute top-2 left-16 max-sm:left-8">
+             className="text-xl p-2 border border-choice1 w-max hover:bg-gray-300 cursor-pointer absolute top-6 left-16 max-sm:left-8">
                 <IoMdArrowBack/>
             </div>
             

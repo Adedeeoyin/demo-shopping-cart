@@ -26,7 +26,7 @@ export default function Product_Layout({children}) {
         </div>
 
     </div>
-    <div className="w-screen mt-32">
+    <div className="w-screen mt-24">
       {children}
     </div>
     </>
