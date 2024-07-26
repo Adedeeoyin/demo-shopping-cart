@@ -1,4 +1,4 @@
-import { DECREMENT, INCREMENT } from "./actionType";
+import { DECREMENT, INCREMENT, UPDATE_PICK } from "./actionType";
 
 export function Increment() {
   return {
@@ -10,6 +10,13 @@ export function Increment() {
 export function Decrement() {
   return {
     type: DECREMENT,
+    payload: null
+  }
+}
+
+export function UpdatePick() {
+  return {
+    type: UPDATE_PICK,
     payload: null
   }
 }

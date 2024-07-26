@@ -3,7 +3,7 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { useSelector } from "react-redux";
 
 export default function Product_Layout({children}) {
-    const navbar = [{name:'Product Listing', path:'/product-list'}, {name:'Shopping Cart', path:'/updated-list'}]
+    const navbar = [{name:'Product Listing', path:'/product-list'}, {name:'Shopping Cart', path:'/shopping-cart'}]
     const state = useSelector((state)=> state.cart)
 
     const location = useLocation()

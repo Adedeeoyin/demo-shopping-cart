@@ -8,13 +8,13 @@ function App() {
 
   return (
     <div className="font-mont w-screen">
-    <Provider store={store}>
-      <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='/product-list' element={<ProductListing/>} />
-        <Route path='/updated-list' element={<Shopping_cart/>} />
-      </Routes>
-     </Provider>
+      <Provider store={store}>
+        <Routes>
+          <Route path='/' element={<Home/>} />
+          <Route path='/product-list' element={<ProductListing/>} />
+          <Route path='/shopping-cart' element={<Shopping_cart/>} />
+        </Routes>
+      </Provider>
     </div>
   )
 }
