@@ -7,7 +7,7 @@ import store from "./redux/store"
 function App() {
 
   return (
-    <div className="font-mont w-screen scroll-smooth">
+    <div className="font-mont w-screen scroll-smooth dark:bg-choice1 dark:text-choice4 dark:border-choice4">
       <Provider store={store}>
         <Routes>
           <Route path='/' element={<Home/>} />

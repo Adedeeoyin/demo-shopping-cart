@@ -32,7 +32,7 @@ export default function ProductListing() {
 
   return (
     <Product_Layout>
-      <div className="p-16 pt-20 max-sm:p-8 relative dark:bg-choice1 dark:text-choice4 ">
+      <div className="p-16 pt-20 max-sm:p-8 relative dark:bg-choice1 ">
             <div
             onClick={()=> navigate('/')}
              className="text-xl p-2 border border-choice1 w-max hover:bg-gray-300 cursor-pointer absolute top-6 left-16 max-sm:left-8">
@@ -45,7 +45,7 @@ export default function ProductListing() {
                   return (
                     <div key={item.name} className="max-sm:mt-8 max-sm:w-full">
                       <div
-                      className="flex max-lg:w-[30vw] max-md:w-[35vw] max-sm:w-full cursor-pointer hover:scale-110 flex-col gap-6 w-[25vw] h-54 p-4 bg-choice1 text-white shadow-xl rounded-lg border border-choice1">
+                      className="flex max-lg:w-[30vw] max-md:w-[35vw] max-sm:w-full cursor-pointer hover:scale-110 flex-col gap-6 w-[25vw] h-54 p-4 bg-choice1 dark:bg-choice4 text-white shadow-xl rounded-lg border border-choice1">
                       <Suspense fallback={<div className="w-full h-32 object-cover text-choice4"><CiImageOn/></div>}>
                         <img src={item.src} alt={item.name} className="w-full rounded-lg h-32 object-cover"/>
                       </Suspense>
