@@ -15,6 +15,7 @@ import CheckoutMesssage from "../../components/CheckoutMesssage";
 export default function Shopping_cart() {
     const [ move, setMove] = useState(0)
     const [ checked, setChecked ] = useState(false)
+    const [ amount, setAmount ] = useState(null)
 
     const [ stopRight, setStopRight] = useState(false)
     const [ stopLeft, setStopLeft] = useState(false)
@@ -33,6 +34,8 @@ export default function Shopping_cart() {
       setChecked(true)
       dispatch({ type: CLEAR_CART})
     }
+
+     
 
     useEffect(() => {
       const observer1 = new IntersectionObserver((entries) => {
@@ -53,12 +56,19 @@ export default function Shopping_cart() {
   
       observer1.observe(lastSlide.current);
       observer2.observe(firstSlide.current);
+
+      const am =()=>{
+        const list = cart.map(cartId => products.find(prod=> prod.id === cartId))
+         const totalAmount = list?.map((c)=>c?.amount)?.reduce((acc,cur)=> acc + cur, 0)
+         setAmount(totalAmount)
+       }
+      am()
   
       return () => {
         observer1.disconnect();
         observer2.disconnect();
       };
-    }, [stopRight, stopLeft]);
+    }, [stopRight, stopLeft, cart,products]);
 
     const handleScrollRight = ()=>{
       if(!stopRight)setMove(prev=> prev - 150);
@@ -136,7 +146,8 @@ export default function Shopping_cart() {
                   {cart.length > 0 && <div className="font-semibold">Cart Summary</div>}
                     {
                   products.filter((prod)=>{
-                      return cart.includes(prod.id)
+                    const cartList = cart.includes(prod.id)
+                      return cartList
                   })
                   .map((list,i)=>{
                     const totalEachPicked = cart.filter((item)=>item === list.id).length
@@ -160,9 +171,14 @@ export default function Shopping_cart() {
                 }
                   <div className="mt-4">
                     {checked && <CheckoutMesssage checked={checked} setChecked={setChecked}/>}
-                   { cart.length > 0 && <button
+                   { cart.length > 0 &&
+                    <>
+                    <div className="font-semibold">Total = <span className="font-normal">{amount}</span></div>
+                    <button
                     onClick={clearCart}
-                     className="w-28 p-2 border-choice2 border text-choice4 bg-choice2 rounded-lg">Checkout</button>}
+                     className="w-28 p-2 border-choice2 border text-choice4 bg-choice2 rounded-lg">Checkout</button>
+                    </>
+                     }
                   </div>
                 </div>
             </div>

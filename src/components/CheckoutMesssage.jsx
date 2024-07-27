@@ -10,7 +10,7 @@ export default function CheckoutMesssage({setChecked}) {
         return ()=>clearTimeout(timer)
     },[])
   return (
-    <div className="fixed top-96 left-1/2 -translate-x-1/2 -translate-y-1/2 text-semi-bold text-3xl text-choice2">
+    <div className="fixed top-96 text-center left-1/2 -translate-x-1/2 -translate-y-1/2 text-semi-bold text-3xl text-choice2">
         Coming Soon!
     </div>
   )
