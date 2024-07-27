@@ -1,4 +1,4 @@
-import { DECREMENT, INCREMENT, UPDATE_PICK } from "./actionType";
+import { CLEAR_CART, DECREMENT, INCREMENT, UPDATE_PICK } from "./actionType";
 import image1 from '../assets/plant1.jpg'
 import image2 from '../assets/plant2.jpg'
 import image3 from '../assets/plant3.jpg'
@@ -16,7 +16,8 @@ const initialState ={
         {name: 'plant-5', id:555, amount: 5000, src: image5},
         {name: 'plant-6', id:666, amount: 6000, src: image6},
       ],
-    pick: 111
+    pick: 111,
+    total_amount: []
 }
 export default function Reducer(state = initialState, action) {
     switch(action.type){
@@ -27,6 +28,7 @@ export default function Reducer(state = initialState, action) {
             if (index !== -1)newCart.splice(index, 1)  
             return {...state, cart: newCart};}
         case UPDATE_PICK:return ({...state, pick: action.payload})
+        case CLEAR_CART: return ({...state, cart: []})
         default: return state
     }
   

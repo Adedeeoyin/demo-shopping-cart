@@ -9,10 +9,13 @@ import { MdArrowBackIos } from "react-icons/md";
 import {motion } from 'framer-motion'
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
-import { DECREMENT } from "../../redux/actionType";
+import { CLEAR_CART, DECREMENT } from "../../redux/actionType";
+import CheckoutMesssage from "../../components/CheckoutMesssage";
 
 export default function Shopping_cart() {
     const [ move, setMove] = useState(0)
+    const [ checked, setChecked ] = useState(false)
+
     const [ stopRight, setStopRight] = useState(false)
     const [ stopLeft, setStopLeft] = useState(false)
     const firstSlide = useRef()
@@ -24,6 +27,11 @@ export default function Shopping_cart() {
 
     const handleDelete = (id)=>{
       dispatch({type: DECREMENT, payload: id})
+    }
+
+    const clearCart = ()=>{
+      setChecked(true)
+      dispatch({ type: CLEAR_CART})
     }
 
     useEffect(() => {
@@ -70,7 +78,7 @@ export default function Shopping_cart() {
             </div>
             
             <div className="flex flex-col w-full h-[80vh] gap-2 relative overflow-x-auto">
-              {cart.length == 0 &&
+              {cart.length == 0  &&
                 <div className="flex flex-col items-center ">
                   <div className="font-semibold text-3xl mx-auto">Cart is Empty</div>
                   <MdOutlineShoppingCart size={80}/>
@@ -150,6 +158,12 @@ export default function Shopping_cart() {
                   })
                     
                 }
+                  <div className="mt-4">
+                    {checked && <CheckoutMesssage checked={checked} setChecked={setChecked}/>}
+                   { cart.length > 0 && <button
+                    onClick={clearCart}
+                     className="w-28 p-2 border-choice2 border text-choice4 bg-choice2 rounded-lg">Checkout</button>}
+                  </div>
                 </div>
             </div>
         </div>

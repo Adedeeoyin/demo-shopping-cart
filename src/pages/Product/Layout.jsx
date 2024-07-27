@@ -1,12 +1,22 @@
 import { Link, useLocation } from "react-router-dom"
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { useSelector } from "react-redux";
+import { useState } from "react";
+import CartHover from "../../components/CartHover";
 
 export default function Product_Layout({children}) {
+  const [ hover, setHover] = useState(false)
     const navbar = [{name:'Product Listing', path:'/product-list'}, {name:'Shopping Cart', path:'/shopping-cart'}]
     const state = useSelector((state)=> state.cart)
 
     const location = useLocation()
+
+    const handleMouseOver = ()=>{
+      setHover(true)
+    }
+    const handleMouseLeave = ()=>{
+      setHover(false)
+    }
 
   return (
     <>
@@ -20,9 +30,13 @@ export default function Product_Layout({children}) {
           }
       </div>
 
-        <div className="text-2xl relative w-max">
+        <div
+        onMouseOver={handleMouseOver}
+        onMouseLeave={handleMouseLeave}
+         className="text-2xl relative w-max cursor-pointer">
           <MdOutlineShoppingCart/>
           <div className="w-full h-full absolute -top-5 -right-4">{state.length}</div>
+          {hover && <CartHover/>}
         </div>
 
     </div>

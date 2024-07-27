@@ -1,4 +1,4 @@
-import { DECREMENT, INCREMENT, UPDATE_PICK } from "./actionType";
+import { CLEAR_CART, DECREMENT, INCREMENT, UPDATE_PICK } from "./actionType";
 
 export function Increment() {
   return {
@@ -18,5 +18,10 @@ export function UpdatePick() {
   return {
     type: UPDATE_PICK,
     payload: null
+  }
+}
+export function ClearCart() {
+  return {
+    type: CLEAR_CART,
   }
 }
